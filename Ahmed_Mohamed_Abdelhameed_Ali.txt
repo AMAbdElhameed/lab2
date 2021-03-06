@@ -1,0 +1,7 @@
+1) 
+mkdir lab2
+cd lab2
+git init
+git remote add origin git@github.com:AMAbdElhameed/lab2.git
+********************************************************************************
+2) 
