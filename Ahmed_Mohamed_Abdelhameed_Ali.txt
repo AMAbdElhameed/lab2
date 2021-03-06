@@ -1,7 +1,97 @@
-1) 
+1) Create a new project on your local machine then push it to your remote repo???
 mkdir lab2
 cd lab2
 git init
-git remote add origin git@github.com:AMAbdElhameed/lab2.git
+touch Ahmed_Mohamed_Abdelhameed_Ali.txt README.md
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/AMAbdElhameed/lab2.git
+git push -u origin master
 ********************************************************************************
-2) 
+2) create two branches (dev and test) then create two files in dev branch and push this changes to remote repo???
+git branch dev
+git branch
+git checkout dev
+git branch
+touch file1.txt file2.txt
+git add file1.txt file2.txt
+git commit -m "dev branch"
+git push origin dev
+click on Compare & pull request (on github)
+then click on Create pull request (on github)
+git checkout master
+git branch test
+git push origin test
+********************************************************************************
+3) merge this changes on main branch and then push it to your remote main branch.???
+git merge dev
+git push origin master
+********************************************************************************
+4) Tell me how to remove them locally and remotly???
+To delete a remote branch:
+>>> git push origin :new_branch
+
+To delete a local branch:
+>>> git branch -d new_branch
+or 
+>>> git branch -D new_branch
+
+Before and after delete branch you should show origin by:
+>>> git remote show origin
+********************************************************************************
+5) Send me invitation on my mail???
+click on lab2 repo
+then (Setting) tab
+then (Manage access) tab in side bar
+then click on (Invite collaborator) button 
+then write username or email 
+then click (Add*) button
+********************************************************************************
+6) create an annoted tag with tagname v1.4???
+git tag -a v1.4 -m "version 1.4"
+********************************************************************************
+7) push it to remote server???
+git push origin v1.4
+********************************************************************************
+8) tell me how to list tags locally.???
+git tag
+git tag -n (-n” option in order to have an extensive description of your tag list.)
+********************************************************************************
+9) tell me how to delete tag locally and remotely???
+To delete a remote tag:
+>>> git push origin --delete v1.4
+or
+>>> git push origin :ref/tags/v1.4
+
+To delete a local tag:
+>>> git tag -d v1.4
+********************************************************************************
+10) What is git rebase? Give me an example???
+- Rebasing is the process of moving or combining a sequence of commits to a new base commit. 
+Rebasing is most useful and easily visualized in the context of a feature branching workflow.
+
+- Rebase is one of two Git utilities that specializes in integrating changes from one branch onto another. 
+The other change integration utility is git merge. Merge is always a forward moving change record. 
+Alternatively, rebase has powerful history rewriting features.
+
+example:
+
+     experiment
+         |
+         v
+         c4
+       /    \
+c0-c1-c2-c3-c5
+            ^
+            |
+         master
+
+$ git checkout experiment
+$ git rebase master
+
+     c4   experiment
+      \       /
+c0-c1-c2-c3-c4
+         ^
+         |
+       master
